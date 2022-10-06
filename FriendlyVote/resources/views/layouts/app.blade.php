@@ -45,12 +45,27 @@
             </div>
         </header>
 
-        <main class="container mx-auto flex" style="max-width:1000px">
-            <div style="max-width:280px; margin-right:20px">
+        <main class="container mx-auto max-w-custom flex">
+            <div class="w-70 mr-5">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis molestias perspiciatis blanditiis, similique velit iusto, obcaecati maxime alias dolorum est debitis consectetur fugit dolorem ut quo laudantium mollitia modi, saepe numquam amet doloremque animi. Officiis consectetur eligendi nam officia itaque non dolores deleniti illo, earum, quidem velit obcaecati? Nam tenetur quae eligendi perspiciatis amet esse veritatis quos! Voluptatibus voluptatem doloremque a quam facilis sequi, ex tempore voluptates inventore voluptatum esse quas nobis quaerat nihil dolorum accusantium optio vel et placeat mollitia rerum enim nostrum. Nostrum sequi ut quae, nihil porro vel quidem ad voluptatum nesciunt, corrupti molestiae deserunt iure autem.
             </div>
-            <div style="max-width:700px">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit aperiam quidem corrupti ducimus, harum voluptatibus, necessitatibus ipsam ratione, veniam neque quos architecto? Saepe iste aperiam autem totam. Voluptates, nihil aspernatur ipsum maiores excepturi similique, fuga velit sed natus cumque aliquid quod, quisquam est quidem dolorum ab porro alias numquam eum assumenda amet! Iusto repellat quisquam vero minus provident impedit iste nemo, nesciunt alias adipisci accusantium odit nulla optio fuga quo nostrum iure assumenda. Suscipit adipisci quo voluptatum dolorem provident labore, vero quasi incidunt architecto quisquam tempora optio quam deleniti repellat exercitationem quia autem recusandae debitis fugit dolor similique totam mollitia reiciendis ut. Impedit placeat eum similique, aliquid laudantium earum magni ut consequuntur ducimus alias officiis accusantium tempore neque tenetur sint magnam, et incidunt vitae quod dolor? Hic in iusto sit velit voluptates. Libero itaque nostrum et ratione odio minima perspiciatis repellendus rerum deserunt deleniti impedit, qui dignissimos. Ipsum fugit fugiat eaque architecto asperiores iusto quas assumenda obcaecati in delectus quisquam non mollitia, deleniti quod aperiam laborum omnis voluptatibus recusandae sequi nostrum dignissimos! Sed reprehenderit esse dignissimos ea, tempore velit earum aspernatur. Nemo, iusto minus? Veritatis et rerum ad in, debitis hic eaque perspiciatis, officiis reprehenderit assumenda ducimus quod aspernatur? Maiores.
+            <div class="w-175">
+                <nav class="flex items-center justify-between text-xs">
+                    <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
+                        <li><a href="#" class="border-b-4 pb-3 border-blue">All Ideas(87)</a></li>
+
+                            <li> <a href="#" class="text-gray-400 transition duration-250 ease-in border-b-4 pb-3 hover:border-blue">Considering(6)</a></li>                      
+                    </ul>
+                    <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
+                        <li> <a href="#" class="text-gray-400 transition duration-250 ease-in border-b-4 pb-3 hover:border-blue">In Progress(4)</a></li>                      
+                            <li> <a href="#" class="text-gray-400 transition duration-250 ease-in border-b-4 pb-3 hover:border-blue">Implemented(10)</a></li>                      
+                    </ul>
+
+                </nav>
+
+                <div class="mt-8">
+                    {{ $slot }}
+                </div>
             </div>
         </main>
     </body>
