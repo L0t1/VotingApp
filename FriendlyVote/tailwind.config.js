@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,8 +11,19 @@ module.exports = {
 
     theme: {
         extend: {
+            colors:{
+
+        current: colors.current,
+        transparent: colors.transparent,
+        black: colors.black,
+        gray: colors.gray,
+        white: colors.white,
+        blue: colors.blue,
+         pink: colors.pink,
+                'gray-background':'#f7f8fc',
+            },
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
             },
         },
     },
