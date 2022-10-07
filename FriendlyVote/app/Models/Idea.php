@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Idea extends Model
 {
@@ -12,7 +12,7 @@ class Idea extends Model
 
     protected $guarded = [];
 
-        /**
+    /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
@@ -25,7 +25,6 @@ class Idea extends Model
             ]
         ];
     }
-
 
     public function user()
     {
