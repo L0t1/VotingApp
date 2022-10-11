@@ -19,7 +19,7 @@
                 <h4 class="text-xl font-semibold">
                     <a href="#" class="hover:underline">{{$idea->title}}</a>
                 </h4>
-                <div class="text-gray-600 mt-3">
+                <div class="text-gray-600 mt-3"> <div>{{ $idea->category->name }}</div>
                     {{$idea->description}}
                 </div>
 
@@ -29,7 +29,7 @@
                         <div class="hidden md:block">&bull;</div>
                         <div>{{$idea->created_at->diffForHumans()}}</div>
                         <div>&bull;</div>
-                        <div>Category 1</div>
+                        <div>{{ $idea->category->name }}</div>
                         <div>&bull;</div>
                         <div class="text-gray-900">3 Comments</div>
                     </div>
