@@ -7,6 +7,22 @@
 }
 
 
+.open {
+	@apply bg-gray-200
+}
+.considering {
+	@apply bg-purple
+}
+.in-progress {
+	@apply bg-yellow
+}
+.implemented {
+	@apply bg-green
+}
+.closed {
+	@apply bg-red
+}
+
 /* vertical line to the left of the comments */
 .comments-container::before {
     position: absolute;

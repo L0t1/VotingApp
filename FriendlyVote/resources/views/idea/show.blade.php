@@ -17,17 +17,17 @@
             </div>
             <div class="w-full mx-2 md:mx-4">
                 <h4 class="text-xl font-semibold">
-                    <a href="#" class="hover:underline">{{$idea->title}}</a>
+                    <a href="#" class="hover:underline">{{ $idea->title }}</a>
                 </h4>
-                <div class="text-gray-600 mt-3"> <div>{{ $idea->category->name }}</div>
-                    {{$idea->description}}
+                <div class="text-gray-600 mt-3">
+                    {{ $idea->description }}
                 </div>
 
                 <div class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                     <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
-                        <div class="hidden md:block font-bold text-gray-900">{{$idea->user->name}}</div>
+                        <div class="hidden md:block font-bold text-gray-900">{{ $idea->user->name }}</div>
                         <div class="hidden md:block">&bull;</div>
-                        <div>{{$idea->created_at->diffForHumans()}}</div>
+                        <div>{{ $idea->created_at->diffForHumans() }}</div>
                         <div>&bull;</div>
                         <div>{{ $idea->category->name }}</div>
                         <div>&bull;</div>
@@ -37,8 +37,9 @@
                         class="flex items-center space-x-2 mt-4 md:mt-0"
                         x-data="{ isOpen: false }"
                     >
-                        <div class="bg-gray-200 text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open</div>
-                        <button
+                    <div class="{{ Str::kebab($idea->status->name) }} bg-gray-400 text-white text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">
+                        {{ $idea->status->name }}
+                    </div>                        <button
                             class="relative bg-gray-100 hover:bg-gray-200 border rounded-full h-7 transition duration-150 ease-in py-2 px-3"
                             @click="isOpen = !isOpen"
                         >
@@ -374,6 +375,7 @@
                     <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit amet consectetur.
                     </div>
+
                     <div class="flex items-center justify-between mt-6">
                         <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
                             <div class="font-bold text-blue">Andrea</div>
