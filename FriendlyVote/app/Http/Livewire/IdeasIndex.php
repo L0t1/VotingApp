@@ -13,7 +13,7 @@ class IdeasIndex extends Component
 {
     use WithPagination;
 
-    public $status= 'All';
+    public $status;
     public $category;
 
     protected $queryString = [
@@ -23,10 +23,13 @@ class IdeasIndex extends Component
 
     protected $listeners = ['queryStringUpdatedStatus'];
 
-    // public function updatingStatus()
-    // {
-    //     $this->resetPage();
-    // }
+    public function mount()
+    {
+        $this->status = request()->status ?? 'All';
+
+    }
+
+  
 
     public function updatingCategory()
     {
