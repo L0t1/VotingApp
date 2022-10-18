@@ -52,7 +52,7 @@ class IdeaController extends Controller
             'votesCount' => $idea->votes()->count(),
             'backUrl' => url()->previous() !== url()->full()
                 ? url()->previous()
-                : route('idea.index'),
+                : route('idea.index'),     
         ]);
     }
 
