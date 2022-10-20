@@ -13,7 +13,7 @@
             this.messageToDisplay = message
             setTimeout(() => {
                 this.isOpen = false
-            }, 5000)
+            }, 3000)
         }
     }"
     x-init="
