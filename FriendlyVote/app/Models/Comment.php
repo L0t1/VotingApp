@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $guardet = [];
+    protected $guarded = [];
 
 
     
