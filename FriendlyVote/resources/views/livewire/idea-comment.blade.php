@@ -7,6 +7,11 @@
         </div>
         <div class="w-full md:mx-4">
             <div class="text-gray-600">
+                @admin
+                    @if ($comment->spam_reports > 0)
+                        <div class="text-red mb-2">Spam Reports: {{ $comment->spam_reports }}</div>
+                    @endif
+                @endadmin
                 {{ $comment->body }}
             </div>
 
@@ -47,7 +52,6 @@
                                     @click.prevent="
                                         isOpen = false
                                         Livewire.emit('setEditComment', {{ $comment->id }})
-                                       
                                     "
                                     class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
                                 >
@@ -63,7 +67,6 @@
                                     @click.prevent="
                                         isOpen = false
                                         Livewire.emit('setDeleteComment', {{ $comment->id }})
-                                        
                                     "
                                     class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
                                 >
@@ -71,7 +74,36 @@
                                 </a>
                             </li>
                             @endcan
-                            <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark as Spam</a></li>                       
+
+                            <li>
+                                <a
+                                    href="#"
+                                    @click.prevent="
+                                        isOpen = false
+                                        Livewire.emit('setMarkAsSpamComment', {{ $comment->id }})
+                                    "
+                                    class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
+                                >
+                                    Mark as Spam
+                                </a>
+                            </li>
+
+                            @admin
+                                @if ($comment->spam_reports > 0)
+                                <li>
+                                    <a
+                                        href="#"
+                                        @click.prevent="
+                                            isOpen = false
+                                            Livewire.emit('setMarkAsNotSpamComment', {{ $comment->id }})
+                                        "
+                                        class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
+                                    >
+                                        Not Spam
+                                    </a>
+                                </li>
+                                @endif
+                            @endadmin
                         </ul>
                     </div>
                 </div>
