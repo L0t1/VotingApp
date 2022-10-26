@@ -26,6 +26,8 @@ class DeleteComment extends Component
         }
 
         Comment::destroy($this->comment->id);
+        
+        $this->comment = Comment::make();
 
         $this->emit('commentWasDeleted', 'Comment was deleted!');
     }
