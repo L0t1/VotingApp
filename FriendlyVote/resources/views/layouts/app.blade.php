@@ -112,6 +112,7 @@
                 message-to-display="{{ (session('success_message')) }}"
             />
         @endif
+        
         <livewire:scripts />
     </body>
 </html>
