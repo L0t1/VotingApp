@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -76,26 +81,8 @@
                         @endauth
                     </p>
                 </div>
-
-                        @auth
-                        <livewire:create-idea />
-                    @else
-                        <div class="my-6 text-center">
-                            <a
-                                href="{{ route('login') }}"
-                                class="inline-block justify-center w-1/2 h-11 text-xs bg-blue text-white font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3"
-                            >
-                            Login
-                        </a>
-                        <a
-                            href="{{ route('register') }}"
-                            class="inline-block justify-center w-1/2 h-11 text-xs bg-gray-200 font-semibold rounded-xl border border-gray-200 hover:border-gray-400 transition duration-150 ease-in px-6 py-3 mt-4"
-                            >
-                            Sign Up
-                        </a>
-                        </div>
-                    </form>
-                    @endauth
+                     
+                        <livewire:create-idea />       
                 </div>
             </div>
             <div class="w-full px-2 md:px-0 md:w-175">

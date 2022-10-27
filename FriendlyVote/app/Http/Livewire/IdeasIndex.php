@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Livewire\Traits\WithAuthRedirects;
 use App\Models\Category;
 use App\Models\Idea;
 use App\Models\Status;
@@ -11,18 +12,18 @@ use Livewire\WithPagination;
 
 class IdeasIndex extends Component
 {
-    use WithPagination;
+    use WithPagination, WithAuthRedirects;
 
     public $status;
     public $category;
     public $filter;
     public $search;
-    
+
     protected $queryString = [
         'status',
         'category',
         'filter',
-        'search'
+        'search',
     ];
 
     protected $listeners = ['queryStringUpdatedStatus'];
@@ -30,7 +31,6 @@ class IdeasIndex extends Component
     public function mount()
     {
         $this->status = request()->status ?? 'All';
-
     }
 
     public function updatingCategory()
@@ -48,18 +48,17 @@ class IdeasIndex extends Component
         $this->resetPage();
     }
 
-
     public function updatedFilter()
     {
-        if($this->filter === 'My Ideas'){
-            if(! auth()->check()){
-                return redirect()->route('login');
+        if ($this->filter === 'My Ideas') {
+            if (auth()->guest()) {
+                return $this->redirectToLogin();
             }
         }
     }
-  
+
     public function queryStringUpdatedStatus($newStatus)
-    {   
+    {
         $this->resetPage();
         $this->status = $newStatus;
     }
