@@ -17,7 +17,9 @@ class IdeaShow extends Component
     public $hasVoted;
 
 
-    protected $listeners = ['statusWasUpdated',
+    protected $listeners = [
+    'statusWasUpdated',
+    'statusWasUpdatedError',
     'ideaWasUpdated',
     'ideaWasMarkedAsSpam',
      'ideaWasMarkedAsNotSpam',
@@ -47,6 +49,12 @@ class IdeaShow extends Component
     {
         $this->idea->refresh();
     }
+    
+    public function statusWasUpdatedError()
+    {
+        $this->idea->refresh();
+    }
+
     public function ideaWasUpdated()
     {
         $this->idea->refresh();

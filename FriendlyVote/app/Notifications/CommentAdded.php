@@ -44,7 +44,7 @@ class CommentAdded extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-        ->subject('Friendly Voting: A comment was posted on your idea')
+        ->subject('Friendly Vote: A comment was posted on your idea')
         ->markdown('emails.comment-added',[
             'comment' => $this->comment,
          ]);
