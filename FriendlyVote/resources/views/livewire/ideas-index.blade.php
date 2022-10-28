@@ -1,6 +1,6 @@
 <div>
     <div class="filters flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-6">
-        <div class="w-full md:w-1/3">
+        <div class="w-full md:w-1/2">
             <select wire:model = "category" name="category" id="category" class="w-full rounded-xl border-none px-4 py-2">
                 <option value="All Categories">All Categories</option>
                 @foreach ($categories as $category)
@@ -8,11 +8,12 @@
                 @endforeach
             </select>
         </div>
-        <div class="w-full md:w-1/3">
+        <div class="w-full md:w-1/2">
             <select wire:model = "filter" name="other_filters" id="other_filters" class="w-full rounded-xl border-none px-4 py-2">
                 <option value="No Filter">No Filter</option>
                 <option value="Top Voted">Top Voted</option>                
-                <option value="Least Voted">Least Voted</option>     
+                <option value="Most Commented">Most Commented</option>                
+                <option value="Least Voted">Least Voted</option>  
                 <option value="My Ideas">My Ideas</option>    
                 @admin
                 <option value="Spam Ideas">Spam Ideas</option>
@@ -21,7 +22,7 @@
               
             </select>
         </div>
-        <div class="w-full md:w-2/3 relative">
+        <div class="w-full md:w-1/2 relative">
             <input wire:model="search" type="search" placeholder="Find an idea" class="w-full rounded-xl bg-white border-none placeholder-gray-900 px-4 py-2 pl-8">
             <div class="absolute top-0 flex itmes-center h-full ml-2">
                 <svg class="w-4 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -37,11 +38,12 @@
                 :key="$idea->id"
                 :idea="$idea"
                 :votesCount="$idea->votes_count"
+                :commentsCount="$idea->comments_count"
             />
             @empty
             <div class="mx-auto w-70 mt-12">
                 <img src="{{asset('img/no-idea.jpeg') }}" alt="No Ideas" class="mx-auto
-                 mix-blend-luminosity">>
+                 mix-blend-luminosity">
                 <div class="text=gray-400 text-center font-bold mt-6">No ideas found...</div>
             </div>
             

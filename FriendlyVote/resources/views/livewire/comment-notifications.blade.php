@@ -69,7 +69,7 @@
         @else
             <li class="mx-auto w-40 py-6">
                 <img src="{{ asset('img/no-idea.jpeg') }}" alt="No Ideas" class="mx-auto
-                 mix-blend-luminosity">>
+                 mix-blend-luminosity">
                 <div class="text-gray-400 text-center font-bold mt-6">No new notifications</div>
             </li>
         @endif
