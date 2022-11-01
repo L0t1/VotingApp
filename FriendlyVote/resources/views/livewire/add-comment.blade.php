@@ -20,7 +20,7 @@
                 lastComment.classList.add('bg-green-50')
                 setTimeout(() => {
                     lastComment.classList.remove('bg-green-50')
-                }, 5000)
+                }, 3500)
             }
         })
         @if (session('scrollToComment'))
@@ -29,7 +29,7 @@
         commentToScrollTo.classList.add('bg-green-50')
         setTimeout(() => {
             commentToScrollTo.classList.remove('bg-green-50')
-        }, 5000)
+        }, 3500)
     @endif
     "
     class="relative"

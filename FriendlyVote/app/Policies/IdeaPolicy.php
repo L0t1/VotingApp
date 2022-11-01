@@ -18,7 +18,7 @@ class IdeaPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class IdeaPolicy
      */
     public function view(User $user, Idea $idea)
     {
-        //
+        
     }
 
     /**
