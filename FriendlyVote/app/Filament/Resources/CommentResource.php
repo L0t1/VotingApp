@@ -38,8 +38,8 @@ class CommentResource extends Resource
                 Tables\Columns\TextColumn::make('user_id')->sortable()->toggleable(),
                 Tables\Columns\TextColumn::make('idea_id')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('status_id')->sortable()->searchable()->toggleable(),
-                Tables\Columns\TextColumn::make('body')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('spam_reports')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('body')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('updated_at')->sortable()->searchable()->toggleable(),
             ])
