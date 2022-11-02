@@ -20,7 +20,14 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationGroup = 'User Management';
+    protected static function getNavigationBadge(): ?string
+{
+    return static::getModel()::count();
+}
+    
+
 
     public static function form(Form $form): Form
     {
@@ -40,12 +47,13 @@ class UserResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+        
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('password'),
-                Tables\Columns\TextColumn::make('email'),
-                Tables\Columns\TextColumn::make('created_at'),
+                Tables\Columns\TextColumn::make('id')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('name')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('email')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('password')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('created_at')->sortable()->searchable()->toggleable(),
             ])
             ->filters([
                 //
@@ -55,6 +63,7 @@ class UserResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
+                
             ]);
     }
     

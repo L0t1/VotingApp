@@ -2,40 +2,33 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\IdeaResource\Pages;
-use App\Filament\Resources\IdeaResource\RelationManagers;
-use App\Models\Idea;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
+use App\Models\Comment;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\CommentResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\CommentResource\RelationManagers;
 
-
-
-class IdeaResource extends Resource
+class CommentResource extends Resource
 {
-    protected static ?string $model = Idea::class;
+    protected static ?string $model = Comment::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-chat';
     protected static ?string $navigationGroup = 'Post Management';
-    protected static ?int $navigationSort = 1;
-    
-    protected static function getNavigationBadge(): ?string
-    {
-    return static::getModel()::count();
-    }
-    
+
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                
+                TextInput::make('body'),
             ]);
-    }
+      }
 
     public static function table(Table $table): Table
     {
@@ -43,11 +36,9 @@ class IdeaResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('user_id')->sortable()->toggleable(),
-                Tables\Columns\TextColumn::make('category_id')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('idea_id')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('status_id')->sortable()->searchable()->toggleable(),
-                Tables\Columns\TextColumn::make('title')->sortable()->searchable()->toggleable(),
-                Tables\Columns\TextColumn::make('slug')->sortable()->searchable()->toggleable(),
-                Tables\Columns\TextColumn::make('description')->sortable()->searchable()->toggleable(),
+                Tables\Columns\TextColumn::make('body')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('spam_reports')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('created_at')->sortable()->searchable()->toggleable(),
                 Tables\Columns\TextColumn::make('updated_at')->sortable()->searchable()->toggleable(),
@@ -73,9 +64,9 @@ class IdeaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListIdeas::route('/'),
-            'create' => Pages\CreateIdea::route('/create'),
-            'edit' => Pages\EditIdea::route('/{record}/edit'),
+            'index' => Pages\ListComments::route('/'),
+            'create' => Pages\CreateComment::route('/create'),
+            'edit' => Pages\EditComment::route('/{record}/edit'),
         ];
     }    
 }

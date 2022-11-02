@@ -169,7 +169,7 @@ return [
     |
     */
 
-    'dark_mode' => false,
+    'dark_mode' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -222,6 +222,8 @@ return [
     */
 
     'layout' => [
+        'max_content_width' => 'full',
+
         'actions' => [
             'modal' => [
                 'actions' => [
@@ -244,7 +246,7 @@ return [
             'alignment' => 'right',
         ],
         'sidebar' => [
-            'is_collapsible_on_desktop' => false,
+            'is_collapsible_on_desktop' => true,
             'groups' => [
                 'are_collapsible' => true,
             ],
@@ -330,4 +332,8 @@ return [
         ],
     ],
 
+    'dark_mode' => true,
+
+
+    
 ];

@@ -18,7 +18,7 @@ class VotePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        
     }
 
     /**
